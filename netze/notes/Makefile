@@ -2,10 +2,17 @@
 
 all: build clean
 
-build:
+build: sw01 sw02
+
+sw01:
 	pdflatex notes_sw01.tex
 	pdflatex notes_sw01.tex
 	pdflatex notes_sw01.tex
+
+sw02:
+	pdflatex notes_sw02.tex
+	pdflatex notes_sw02.tex
+	pdflatex notes_sw02.tex
 
 clean:
 	rm -f *.aux
