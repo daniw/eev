@@ -9,4 +9,6 @@
 ## SW02
 - Nr 6 -> a), c), d)
 - Nr 9 -> a)
-- 
+
+- Nr 1 (3 Phasen)
+- Nr 36 (Generator)
