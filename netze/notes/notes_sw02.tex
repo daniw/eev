@@ -100,4 +100,99 @@
 \[ \Rightarrow P_{\triangle} = 3 \cdot P_{\star} \]
 \[ \Rightarrow Q_{\triangle} = 3 \cdot Q_{\star} \]
 
+\section{Stromverteilung}
+UCTE $\stackrel{2009}{\to}$ ENTSO-E (European Network of Transmission System Operators for Electricity
+
+\section{Normwerte}
+\subsection{Nennwert (Nominal value)}
+Dient zur Benennung einer Grösse \\
+Index: $N$ \\
+Bsp: $U_N = 380 \si{\kilo\volt}$
+
+\subsection{Bemessungswert (Rated value)}
+Beschreibt eine Betriebsbedingung \\
+Index: r \\
+Bsp: $U_r = 400 \si{\kilo\volt}$
+
+\subsection{Grenzwerte (Limiting value)}
+maximaler und minimaler Wert einer Grösse
+
+\subsection{Symmetrischer Betrieb, Nennwerte}
+\[ S_N = \sqrt{3} \cdot U_N \cdot I_N (\star und \triangle) \]
+Nennimpedanz: 
+\[ Z_N = \frac{\frac{U_N}{\sqrt{3}}}{I_N} = \frac{U_N}{\sqrt{3} I_N} \qquad \text{ für Sternschaltung} \]
+\[ Z_N = \frac{{U_N}^2}{\sqrt{3} U_N I_N} = \frac{{U_N}^2}{S_N} \]
+\[ Z_N = \frac{U_N}{\frac{I_N}{\sqrt{3}}} = \frac{\sqrt{3} U_N}{I_N} \qquad \text{ für Dreieckschaltung} \]
+\[ Z_N = \frac{\sqrt{3} U_N I_N}{{I_N}^2} = \frac{S_N}{{I_N}^2} \]
+
+\subsection{Bezogene Grössen}
+\[ U \to u = \frac{U}{U_N} \qquad \underline{u} = \frac{\underline{U}}{U_N} \qquad \text{(Phase $L_1$} \]
+\[ I \to i = \frac{I}{I_N} \qquad \underline{i} = \frac{\underline{I}}{I_N} \qquad \text{(Phase $L_1$} \]
+\[ S \to s = \frac{S}{S_N} \qquad \underline{s} = \frac{\underline{S}}{S_N} \qquad \text{(Phase $L_1$} \]
+\[ Z \to z = \frac{Z}{Z_N} \qquad \underline{z} = \frac{\underline{Z}}{Z_N} \qquad \text{(Phase $L_1$} \]
+Einheit p.u. per unit
+\\
+Stern $\to$ Normalfall
+\[ z = \frac{Z}{Z_N} = \frac{Z}{\frac{{U_N}^2}{S_N}} = Z \frac{S_N}{{U_N}^2} \]
+Wenn z gegeben: 
+\[ \boxed{Z = z \frac{{U_N}^2}{S_N}} \]
+Dreieck
+\[ z = \frac{Z}{Z_N} = \frac{Z}{\frac{S_N}{{U_N}^2}} = Z \frac{{I_N}^2}{S_N} \]
+Wenn z gegeben: 
+\[ \boxed{Z = z \frac{S_N}{{I_N}^2}} \]
+
+\section{Synchrongenerator}
+ESB: 1 polig
+\[ X_d = X_h + X_\delta >> R \qquad \text{$R$ vernachlässigen} \]
+Netz induktiv
+\begin{figure}[h!]
+    \begin{tikzpicture}
+        \draw[-latex] (0:3) -- (180:3);
+        \draw[-latex] (90:-0.2) -- (90:3);
+        \draw[-latex, red] (60:0) -- (60:1);
+    \end{tikzpicture}
+\end{figure}
+Polradwinkel \\
+Praxis $0^\circ < \vartheta < 30^\circ \qquad max: 70^\circ$
+\[ \underline{U} = U \angle 0^\circ \qquad \text{(Referenz)} \qquad \underline{U}_p = U_p \angle\vartheta \]
+EPS: positive Werte: Abgabe, negative Werte: Bezug
+\[ \underline{U}_p = \underline{U} + \underline{U}_x = \underline{U} + j X_d \underline{I} \to 
+\underline{I} = \frac{\underline{U}_p - \underline{U}}{j X_d} = \frac{U_p \angle \vartheta - U \angle 0^\circ}{X_d \angle 90^\circ} \]
+\[ \underline{I} = 
+\frac{U_p \angle \vartheta}{X_d \angle 90^\circ} - \frac{U_p \angle 0^\circ}{X_d \angle 90^\circ} = 
+\frac{U_p}{X_d} \angle \vartheta - 90^\circ - \frac{U_p}{X_d} \angle 90^\circ
+\]
+Trennung von Real- und Imaginäranteil
+\[ \underline{I} = 
+\frac{U_p}{X_d} (\underbrace{\cos(\vartheta - 90^\circ)}_{\sin(\vartheta)} + j \underbrace{\sin(\vartheta - 90^\circ)}_{-\cos(\vartheta)}) + j \cdot \frac{U_p}{X_d}
+\]
+\[ \underline{I} = \frac{U_p}{X_d} \sin(\vartheta) + j \left(\frac{U_p}{X_d} \cos(\vartheta) - \frac{U}{X_d}\right) \]
+\[ \underline{S} = U\left(\frac{U_p}{X_d} \sin(\vartheta) + j \left(\frac{U_p}{X_d} \cos(\vartheta) - \frac{U}{X_d}\right)\right) \]
+\[ \underline{S} = P + j Q \]
+\[ P = \frac{U \cdot U_p}{X_d} \sin(\vartheta) \qquad \text{pro Phase} \]
+3 Phasen zusammen:
+\[ P_{tot} = 3 P = 3 \frac{U \cdot U_p}{X_d} \sin(\vartheta) = 3 \frac{\frac{U_v}{\sqrt{3}} \cdot \frac{U_{p_v}}{\sqrt{3}}}{X_d} \sin(\vartheta) \]
+\[ \boxed{P_{tot} = \frac{U_v \cdot U_{p_v}}{X_d} \sin(\vartheta)} \]
+$\vartheta$ positiv $\to$ P positiv $\to$ Abgabe\\
+$\vartheta$ negativ $\to$ P negativ $\to$ Bezug\\
+\[ P_{tot} = P_{mech} = \omega M \qquad \omega = 2 \pi n \qquad n [\si{\per\second}] \]
+\[ \underline{S} = ??? \]
+\[ Q = \frac{U U_r}{X_d} \cos(\vartheta) - \frac{U^2}{X_d} \qquad \text{pro Phase} \]
+3 Phasen zusammen:
+\[ Q_{tot} = 3 Q = 3 \frac{U \cdot U_p}{X_d} - 3 \frac{U^2}{X_d} = 
+3 \frac{\frac{U_v}{\sqrt{3}} \frac{U_{p_v}}{\sqrt{3}}}{X_d} - 3 \frac{\left(\frac{U_v}{\sqrt{3}}\right)^2}{X_d} \]
+\[ \boxed{Q_{tot} = \frac{U_v U_{p_v}}{X_d} \cos(\vartheta) - \frac{{U_v}^2}{X_d}} \]
+Für $U_{p_v} \cos(\vartheta) > U_v \to Q $ positiv \\
+$\Rightarrow$ Abgabe \\
+d.h. $U_{p_v}$ gross $\to I_f$ (Erregerstrom) gross
+$U_{p_v} \sim I_f$ \\
+$\Rightarrow$ übererregt kapazitiv \\
+Für $U_{p_v} \cos(\vartheta) < U_v \to Q $ negativ \\
+$\Rightarrow$ Bezug \\
+d.h. $U_{p_v}$ klein $\to I_k$ klein
+$U_{p_v} \sim I_f$ \\
+$\Rightarrow$ untererregt induktiv\\
+Für $U_{p_v} \cos(\vartheta) = U_v \to Q = 0$ \\
+$\Rightarrow$ voll erregt\\
+
 \end{document}
