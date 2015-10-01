@@ -1,0 +1,86 @@
+\documentclass[a4,paper,fleqn]{article}
+
+\usepackage{layout}
+
+\DeclareSIUnit\year{Jahr}
+
+\title{Notizen EEV -- SW02}
+\date{\today}
+\author{Daniel Winz}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Wasserganglinie}
+\begin{enumerate}
+    \item Wasserdaten
+    \begin{itemize}
+        \item vorhanden
+        \item Messung
+        \item Berechnung
+    \end{itemize}
+    \item Aufarbeiten Wasserdaten
+    \item Dauerlinie $\to$ Wasserganglinie
+\end{enumerate}
+
+\section{Bruttohöhe}
+Höhendifferenz ohne Verluste
+
+\section{Natürliche hydraulische Energie}
+\begin{figure}[h!]
+    \begin{tikzpicture}
+        \draw[fill] (0,2) circle [radius=0.025] node[above left] {$A_1$};
+        \draw[fill] (2,0) circle [radius=0.025] node[below right] {$A_2$};
+    \end{tikzpicture}
+\end{figure}
+Arbeit = Kraft $\cdot$ Weg (in Richtung Kraft oder Weg)
+\[ W_{1-2} = F \cdot s \]
+\[ F = G \cdot \sin(\alpha) \]
+\[ W_{1-2} = G \cdot \underbrace{\sin(\alpha) \cdot s}_{H_{Br}} \]
+\[ W_{1-2} = G \cdot H_{Br} \]
+\[ G = m \cdot g \]
+\[ m = V \cdot \varrho \]
+\[ G = V \cdot \varrho \cdot g \]
+\[ \boxed{W_{1-2} = V \cdot \varrho \cdot g \cdot H_{Br}} \]
+
+\subsection{Leistung}
+\[ P = \frac{W_{1-2}}{t} = \frac{V \cdot \varrho \cdot g \cdot H_{Br}}{t} \]
+\[ \frac{V}{t} \Rightarrow \dot{V} \propto \dot{Q} \]
+Einheiten???
+
+\[ P_{effektiv} = \dot{Q} \cdot \varrho \cdot q \cdot \underbrace{(H_{Br} - \Delta h)}_{H_{Netto}}
+\cdot \eta_{Turbine} \cdot \eta_{Generator} \]
+\[ P_{effektiv} = \dot{Q} \cdot \varrho \cdot q \cdot H_{Netto} \cdot \eta_{Gesamt} \]
+
+\section{Triebwassersysteme}
+\begin{itemize}
+    \item Kanal \\
+        v: 1 \ldots 5 \si{\metre\per\second} \\
+        Gefälle: 0.01 \ldots 0.02  \%
+    \item Stollen
+    \begin{itemize}
+        \item Freispiegel \\
+            v: 1 \ldots 1.5 \si{\metre\per\second} \\
+        \item Druckstollen \\
+            v: 3 \ldots 6 \si{\metre\per\second} \\
+            Material: Stahl oder Beton
+    \end{itemize}
+\end{itemize}
+
+\section{Abschlussorgane}
+\begin{itemize}
+    \item Drosselklappe
+    \item Kugelschieber
+\end{itemize}
+
+\section{Pump-Speicher-Kraftwerk}
+\subsection{Generator-Betrieb}
+\[ P_{net} = P_{pot} \cdot \eta_T \cdot \eta_{mech} \cdot \eta_G \]
+\[ \eta_{tot} = \frac{P_{net}}{P_{pot}} \]
+
+\subsection{Pump-Betrieb}
+\[ P_{net} = P_{brutto} \cdot \eta_M \cdot \eta_{mech} \cdot \eta_P \]
+\[ \eta_{tot} = \frac{P_{net}}{P_{brutto}} \]
+
+\end{document}
