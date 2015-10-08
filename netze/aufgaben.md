@@ -12,3 +12,8 @@
 
 - Nr 1 (3 Phasen)
 - Nr 36 (Generator)
+
+## SW04
+- Nr 35
+- Nr 37
+- Nr 4 und 5
