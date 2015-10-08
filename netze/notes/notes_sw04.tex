@@ -1,0 +1,55 @@
+\documentclass[a4,paper,fleqn]{article}
+
+\usepackage{layout}
+
+\DeclareSIUnit\year{Jahr}
+\newcommand{\wye}{
+    \begin{tikzpicture}
+        \draw ( 90:0) -- ( 90:0.2);
+        \draw (210:0) -- (210:0.2);
+        \draw (330:0) -- (330:0.2);
+    \end{tikzpicture}
+}
+
+\title{Notizen EEV -- SW04}
+\date{\today}
+\author{Daniel Winz}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Erneuerbare Energie}
+
+\subsection{Potential}
+\begin{itemize}
+    \item theoretisch: Angebot der Natur
+    \item technisch: Erschliessungsmöglichkeiten
+    \item realisierbar: wirtschaftliche Nutzung
+\end{itemize}
+
+\[ \text{Erntefaktor} = 
+    \frac{\text{elelktrische Produktion eines Kraftwerks}}
+         {\text{Energie zur Herstellung}} \]
+\[ \text{Energetische Amortisationszeit} = 
+    \frac{\text{Energie zur Herstellung}}
+         {\text{elektrische Jahresproduktion}} \]
+
+\section{Leistung einer Windanlage}
+\begin{tabular}{@{}ll}
+    $D$:        & Durchmesser des Rotors \\
+    $\varrho$:  & Dichte der Luft \\
+    $v$:        & Windgeschwindigkeit \\
+    $\eta$:     & Wirkungsgrad \\
+\end{tabular}
+\\
+Kinetische Energie eines Luftzylinders mit Masse $m$ und Geschwindigkeit $v$
+\[ W_{kin} = \frac{1}{2} m v^2 \]
+\[ m = v \cdot \varrho = A \cdot \ell \cdot \varrho \]
+\[ A = frac{\pi \cdot D^2}{4} \]
+\[ \ell = v cdot t \]
+\[ \Rightarrow m = \frac{\pi D^2}{4} v \ell \varrho \]
+\[ \Rightarrow W_{kin} = \frac{1}{8} \pi D^2 v^3 t \varrho \]
+\[ \Rightarrow P_{Wind} = \frac{W_{kin}}{t} = \frac{1}{8} \pi D^2 v^3 \varrho \]
+
+\end{document}
