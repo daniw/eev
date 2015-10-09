@@ -17,3 +17,8 @@
 - Nr 35
 - Nr 37
 - Nr 4 und 5
+
+- Nr 8
+- Nr 6
+- Nr 9
+- Nr 38
