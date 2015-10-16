@@ -48,6 +48,16 @@
     \usepackage{subcaption}     % Bildunterschrift unter zusammen dargestellten Bildern
     \usepackage{tikz}           % TikZ - "TikZ ist kein Zeichenprogramm"
         \usetikzlibrary{tikzmark}   % References for hooking tikz graphics to
+        \usetikzlibrary{circuits.ee.IEC}
+        \usetikzlibrary{circuits.logic.IEC}
+    \usepackage[
+        european,
+        europeanvoltages,
+        europeanresistors,
+        americaninductors,
+        europeanports,
+        siunitx
+        ]{circuitikz}
     \usepackage{tikz-timing}    % For drawing timing diagrams with tikz
     \usepackage{pgfplots}       % For plots in tikz
 

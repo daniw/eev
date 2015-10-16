@@ -1,0 +1,298 @@
+\documentclass[a4,paper,fleqn]{article}
+
+\usepackage{layout}
+
+\DeclareSIUnit\year{Jahr}
+\newcommand{\wye}{
+    \begin{tikzpicture}
+        \draw ( 90:0) -- ( 90:0.2);
+        \draw (210:0) -- (210:0.2);
+        \draw (330:0) -- (330:0.2);
+    \end{tikzpicture}
+}
+
+\title{Notizen EEV -- SW05}
+\date{\today}
+\author{Daniel Winz}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Symmetrische Impedanzen}
+Bestimmbar bei zyklisch, symmetrischem Aufbau der Betriebsmittel. 
+\\
+\begin{tabular}{ll}
+Mitimpedanz   & $\underline{Z}_1$ \\
+Gegenimpedanz & $\underline{Z}_2$ \\
+Nullimpedanz  & $\underline{Z}_0$ \\
+\end{tabular}
+\\
+Es gilt: 
+\[ \underline{U}_1 = \underline{Z}_1 \cdot \underline{I}_1 \qquad \text{Normalbetrieb} \]
+\[ \underline{U}_2 = \underline{Z}_2 \cdot \underline{I}_2 \]
+\[ \underline{U}_0 = \underline{Z}_0 \cdot \underline{I}_0 \]
+
+\subsection{Messung der symmetrischen Impedanzen}
+(Längsimpedanzen für Kurzschlussrechnungen)
+\[ \boxed{ \underline{Z}_1} \qquad \text{Normalbetrieb} \]
+\begin{circuitikz}
+    \draw
+        % N
+        (0,0)
+            to[short, *-]
+        (0, 2)
+            to[V<=$U_{1N}$, i=$I_{L1}$]
+        (2, 2)
+            to[short]
+        (4, 2)
+        (0,0)
+            node[left] {$N$} to[short, *-]
+        (0, 0)
+            to[V<=$U_{2N}$, i=$I_{L2}$]
+        (2, 0)
+            to[short]
+        (4, 0)
+        (0,0)                  to[short, *-]
+        (0,-2)
+            to[V<=$U_{3N}$, i=$I_{L3}$]
+        (2,-2)
+            to[short]
+        (4,-2)
+        % K
+        (8, 2)
+            to[short]
+        (10, 2)
+            to[short, -*]
+        (10,0)
+        (8, 0)
+            to[short]
+        (10, 0)
+            to[short, -*]
+        (10,0)
+            node[right] {$K$}
+        (8,-2)
+            to[short]
+        (10,-2)
+            to[short, -*]
+        (10,0)
+    ;
+    \draw (4,-3) rectangle node[align=center] {Betriebsmittel\\$\underline{Z}_1$} (8,3);
+1
+\end{circuitikz}
+\[ \underline{Z}_1 = \frac{\underline{U}_{1N}}{\underline{I}_{L1}} \]
+
+\[ \boxed{ \underline{Z}_2} \]
+Bemerkung: $\underline{Z}_2 = \underline{Z}_1$ für nichtrotierende Betriebsmittel. 
+\\
+\begin{circuitikz}
+    \draw
+        % N
+        (0,0)
+            to[short, *-]
+        (0, 2)
+            to[V<=$U_{1N}$, i=$I_{L1}$]
+        (2, 2)
+            to[short]
+        (4, 2)
+        (0,0)
+            node[left] {$N$} to[short, *-]
+        (0, 0)
+            to[V<=$U_{2N}$, i=$I_{L2}$]
+        (2, 0)
+            to[short]
+        (4,-2)
+        (0,0)                  to[short, *-]
+        (0,-2)
+            to[V<=$U_{3N}$, i=$I_{L3}$]
+        (2,-2)
+            to[short]
+        (4, 0)
+        % K
+        (8, 2)
+            to[short]
+        (10, 2)
+            to[short, -*]
+        (10,0)
+        (8, 0)
+            to[short]
+        (10, 0)
+            to[short, -*]
+        (10,0)
+            node[right] {$K$}
+        (8,-2)
+            to[short]
+        (10,-2)
+            to[short, -*]
+        (10,0)
+    ;
+    \draw (4,-3) rectangle node[align=center] {Betriebsmittel\\$\underline{Z}_2$} (8,3);
+2
+\end{circuitikz}
+\[ \underline{Z}_2 = \frac{\underline{U}_{1N}}{\underline{I}_{L1}} \]
+
+\[ \boxed{ \underline{Z}_0} \]
+\begin{circuitikz}
+    \draw
+        % N
+        (0,-2)
+            to[short, *-]
+        (0, 2)
+            to[short, i=$I_{0}$]
+        (2, 2)
+        (0, 0)
+            node[left] {$N$} to[short, *-]
+        (0, 0)
+            to[short]           
+        (2, 0)
+        (0,-2)                  to[short, *-]
+        (0,-2)
+            to[short]           
+        (2,-2)
+        % K
+        (6, 2)
+            to[short]
+        (8, 2)
+            to[short, -*]
+        (8,-2)
+        (6, 0)
+            to[short]
+        (8, 0)
+            to[short, -*]
+        (8, 0)
+            node[right] {$K$}
+        (6,-2)
+            to[short]
+        (8,-2)
+            to[short, -*]
+        (8,-2)
+        % ZE
+        (0,-2)
+            to[V_=$\underline{U}_0$, *-]
+        (0,-6)
+            to[short]
+        (3,-6)
+            to[generic=$Z_E$, v<=$U_E$]
+        (5,-6)
+            to[short]
+        (8,-6)
+            to[short, i<_=$3 \cdot \underline{I}_0$]
+        (8,-2)
+    ;
+    \draw (2,-3) rectangle node[align=center] {Betriebsmittel\\$\underline{Z}_{0B}$} (6,3);
+    \draw[-latex] (2,-3.2) -- node[below] {$\underline{U}_{0B}$} (6,-3.2);
+3
+\end{circuitikz}
+\[ \underline{Z}_0 
+= \frac{\underline{U}_{0B} + \underline{U}_{E}}{\underline{I}_{0}}
+= \frac{\underline{U}_{0}}{\underline{I}_{0}}
+= \frac{Z_{0B} \cdot \underline{I}_{0} + Z_{E} \cdot 3 \underline{I}_{0}}{\underline{I}_{0}}
+= Z_{0B} + 3 \cdot Z_{E} \]
+
+\subsection{Ersatzschaltungen}
+Mitsystem: \\
+\begin{circuitikz}
+    \draw
+        (0,0)
+            to[short, -o]
+        (3,0)
+            to[open, v<=$\underline{U}_1$, o-o]
+        (3,2)
+            to[generic, l_=$\underline{Z}_1$, i<=$\underline{I}_1$, o-]
+        (0,2)
+            to[V_=$\underline{U}_{q1}$]
+        (0,0)
+    ;
+4
+\end{circuitikz} \\
+Gegensystem: \\
+\begin{circuitikz}
+    \draw
+        (0,0)
+            to[short, -o]
+        (3,0)
+            to[open, v<=$\underline{U}_2$, o-o]
+        (3,2)
+            to[generic, l_=$\underline{Z}_2$, i<=$\underline{I}_2$, o-]
+        (0,2)
+            to[V_=$\underline{U}_{q2}$]
+        (0,0)
+    ;
+5
+\end{circuitikz} \\
+Nullsystem: \\
+\begin{circuitikz}
+    \draw
+        (0,0)
+            to[short, -o]
+        (3,0)
+            to[open, v<=$\underline{U}_0$, o-o]
+        (3,2)
+            to[generic, l_=$\underline{Z}_0$, i<=$\underline{I}_0$, o-]
+        (0,2)
+            to[V_=$\underline{U}_{q0}$]
+        (0,0)
+    ;
+6
+\end{circuitikz} \\
+
+\subsection{Vereinfachungen für Kurzschlussrechnungen}
+\begin{itemize}
+    \item Starre Speisung: 
+        \[ \underline{U}_{q1} = \underline{U}_{1N} \]
+        \[ \underline{U}_{q2} = \underline{U}_{q0} = 0 \]
+    \item Es dominieren die Reaktanzen \\
+        (X) der Selbst- und Gegeninduktivitäten
+    \item Bildung einer Ersatzquelle
+        (Thévenin) am Ort des Fehlers
+\end{itemize}
+Definition: \\
+\begin{tabular}{@{}ll}
+Generatornaher Fehler:  & vor Trafo \\
+Generatorferner Fehler: & nach Trafo
+\end{tabular}
+
+\subsection{Impedanzen am Trafo}
+\[ Z_{OS} = \frac{{U_{OS}}^2}{S} \]
+\[ Z_{US} = \frac{{U_{US}}^2}{S} \]
+
+\subsection{Generator}
+\begin{tikzpicture}
+7
+\end{tikzpicture}
+\[ \underline{\underline{X_I = X_d'' = \kappa_d'' \cdot \frac{{U_N}^2}{S_N}}} \]
+${X_d}''$: subttransiente Reaktanz
+\[ {X_d}'' \approx \frac{X_d}{6} \]
+Für $U_N$ wird die \emph{Spannung am Kurzschlussort} eingesetzt! 
+\[ X_2 = X_1    \qquad \text{für Vollpolmaschinen} \]
+\[ X_2 > X_1    \qquad \text{für Schenkelpolmaschinen} \]
+\[ X_0 = \infty \qquad \text{keine Erdung des Sternpunktes (Stator)} \]
+
+\subsection{Netzeinspeisung (Ersatznetz)}
+\begin{tikzpicture}
+8
+\end{tikzpicture}
+\[ {S_k}'' = \sqrt{3} \cdot U_N \cdot {I_k}'' \]
+\[ \underline{\underline{X_1 = X_2 = c \cdot \frac{{U_0}^2}{{S_k}''}}} \]
+$c$: Spannungsfaktor \\
+NE1 und NE3: $c = 1.1$ (Höhere Spannung in Praxis)
+\[ X_0 = \infty \qquad \text{$Z_E$ sehr gross} \]
+
+\subsection{Transformator}
+\begin{tikzpicture}
+9
+\end{tikzpicture}
+$u_K$: relative Kurzschlussspannung
+\[ u_K = \frac{U_K}{U_{1N}} \]
+$U_K$: Spannung die angelegt werden muss um $I_N$ zu erhalten beim Kurzschluss
+\[ X_0 = X_1 \qquad \text{für Dreischenkelkern mit geerdetem Sternpunkt} \]
+
+\subsection{Freileitungen}
+Induktivitätsbelag
+\[ L' \left(\frac{\text{H}}{\text{km Phase}}\right) \]
+\[ \omega \cdot L' = {X_L}' \left(\frac{\text{$\Omega$}}{\text{km Phase}}\right) \]
+\[ X_1 = X_2 = {X_L}' \cdot \ell \]
+$\ell$: Länge in km
+\[ X_0 = 3 \cdot X_I \qquad \text{Näherung für Freileitung mit Erdseil} \]
+
+\end{document}
