@@ -22,3 +22,8 @@
 - Nr 6
 - Nr 9
 - Nr 38
+
+## SW05
+- Nr 7 (Rücktransformation)
+- Nr 10
+- Nr 39 (Generator)
