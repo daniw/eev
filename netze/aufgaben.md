@@ -27,3 +27,7 @@
 - Nr 7 (Rücktransformation)
 - Nr 10
 - Nr 39 (Generator)
+
+## SW07
+- Nr 13
+- Nr 14/15 (gleicher Topologie)
