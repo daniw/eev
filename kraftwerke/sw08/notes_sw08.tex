@@ -1,0 +1,84 @@
+\documentclass[a4,paper,fleqn]{article}
+
+\usepackage{layout}
+
+\DeclareSIUnit\year{Jahr}
+
+\title{Notizen EEV -- SW08}
+\date{\today}
+\author{Daniel Winz}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Thermodynamik}
+
+\subsection{1. Hauptsatz}
+Energie kann weder "'vernichtet"' noch "'erzeugt"' werden. \\
+Wärme = Energieform (Wirkungsgrad, Verluste)
+
+\subsection{2. Hauptsatz}
+\begin{tikzpicture}
+    \draw (0,0) rectangle node {$T_1$} (2,4);
+    \draw (2,0) rectangle node {$T_2$} (4,4);
+    \draw[-latex] (1,3) -- node[above] {$Q$} (3,3);
+\end{tikzpicture}
+\\
+$Q$ = Wärmefluss
+\[ T_1 > T_2 \]
+Prinzip thermische Maschine
+\\Handnotiz
+
+\subsection{Aggregats-Zustände z.B. Wasser}
+Handnotiz
+\begin{tikzpicture}
+    \draw[-latex] (0,0) -- (5,0) node[below] {Energie $W$};
+    \draw[-latex] (0,0) -- (0,5) node[left] {Temperatur $\vartheta$};
+    \draw (0,0) -- (1,1) -- (2,1) -- (4,3) -- (5,3) -- (6,4);
+\end{tikzpicture}
+
+\subsection{Nassdampf}
+Handnotiz
+1 kg Nassdampf\\
+$\Rightarrow$ x kg Sattdampf, (1-x) kg siedende Flüssigkeit\\
+Siedelinie $\Rightarrow$ x=0\\
+Taulinie $\Rightarrow$ x=1
+\[ x = \frac{\text{Masse Dampf}}{\text{Masse Wasser + Masse Dampf}} = \frac{m''}{m' + m''} \]
+Handnotiz
+
+\subsection{Zustandsgrössen ideale Gase}
+Isothermiegesetz $T=const$
+\[ \frac{p_1}{p_2} = \frac{V_2}{V_1} \]
+Isobarengesetz $p=const$
+\[ \frac{T_1}{T_2} = \frac{V_1}{V_2} \]
+\[ \text{Wärmemenge:} Q = m \cdot c_p \cdot (T_2 - T_1) \]
+Isochore Zustandsänderung $V=const$
+\[ \frac{T_1}{T_2} = \frac{p_1}{p_2} \]
+\[ \text{Wärmemenge:} Q = m \cdot c_v \cdot (T_2 - T_1) \]
+Gasgleichung
+\[ p \cdot V = m \cdot n_s \cdot T \]
+\begin{tabular}{@{}l@{$=$}l}
+    $p  $ & Druck \\
+    $V  $ & Volumen \\
+    $m  $ & Masse \\
+    $n_s$ & Gaskonstante \\
+    $T  $ & Temperatur [K] \\
+\end{tabular}
+
+\section{Prinzip Dampf-Kraftwerk}
+Handnotiz
+
+\subsection{Dampf-Kraftwerk Kreislauf Skizze}
+Handnotiz
+
+\subsection{Brennstoffe}
+\begin{itemize}
+    \item Kohle (weltweit hoher Anteil)
+    \item Erdgas (eher selten für Dampf-Kraftwerk)
+    \item Uran
+    \item Erdöl (Schweröl)
+    \item Biomasse (gewinnt an Bedeutung, $CO_2$ neutral)
+\end{itemize}
+
+\end{document}
