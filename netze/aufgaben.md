@@ -31,3 +31,7 @@
 ## SW07
 - Nr 13
 - Nr 14/15 (gleicher Topologie)
+
+## SW08
+- Nr. 16 (Petersen)
+- Nr. 34 (Generator)
