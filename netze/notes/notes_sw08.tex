@@ -1,0 +1,75 @@
+\documentclass[a4,paper,fleqn]{article}
+
+\usepackage{layout}
+
+\DeclareSIUnit\year{Jahr}
+\newcommand{\wye}{
+    \begin{tikzpicture}
+        \draw ( 90:0) -- ( 90:0.2);
+        \draw (210:0) -- (210:0.2);
+        \draw (330:0) -- (330:0.2);
+    \end{tikzpicture}
+}
+
+\title{Notizen EEV -- SW08}
+\date{\today}
+\author{Daniel Winz}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Sternpunktbehandlung}
+(siehe Unterlagen)
+
+\subsection{Erdfehlerfaktor}
+\[ f_E = \frac{U_E}{\frac{U_N}{\sqrt{3}}} \]
+$U_E$: Spannung zwischen einem "'gesunden"' Aussenleiter und der Erde bei 
+einem 1pES. 
+\subsubsection{wirksame Erdung}
+\[ f_E \text{ ist überall } < 1.4 \]
+\subsubsection{unwirksame Erdung}
+\[ f_E > 1.4 \]
+
+\subsection{Betriebskapazität}
+Handnotiz
+\[ C': \text{ Beträge in F pro km und Phase} \]
+Stern-Dreieck-Transformation
+\[ X_{C_L} = \frac{1}{\omega \cdot C_L} \rightarrow \frac{X_{C_L}}{3} 
+= \frac{1}{3 \cdot \omega \cdot C_L} \]
+\[ \Rightarrow {C_{L_\star}}' \Rightarrow 3 \cdot {C_L}' \]
+Handnotiz\\
+Parallelschaltung: 
+\[ \boxed{{C_b}' = {C_E}' + 3 \cdot {C_L}'} \]
+
+\subsection{Netze mit isoliertem Sternpunkt}
+Mittelspannungsnetze mit geringer Ausdehnung
+\[ \Rightarrow C_b \text{ klein} \]
+Handnotiz
+\[ I_{E_2} = U_{12} \cdot j \cdot B_{CE} \qquad (B_{CE} = \omega \cdot C_E) \]
+\[ I_{E_3} = U_{31} \cdot j \cdot B_{CE} \]
+\[ I_E = I_{E_2} - I_{E_3} \qquad \text{(Knoten)} \]
+Weil $U_{E_2}$ und $U_{E_3}$ 120$^\circ$ phasenverschoben sind, sind es auch $I_{E_2}$ und $I_{E_3}$
+\[ \boxed{\left|I_{E_2} - I_{E_3}\right| = \sqrt{3} U_N \omega C_E = 3 I_0 = I_E} \]
+\[ I_0 = U_{q_1} \omega C_E \]
+\[ I_E = 3 I_0 = 3 U_{q_1} \omega C_E = 3 \frac{U_N}{\sqrt{3}} \omega C_E \]
+\[ I_E = \sqrt{3} U_N \omega C_E \]
+Reduktion von $I_E$ durch "'Löschspule"' bzw. Petersenspule im Sternpunkt 
+deines Trafos. 
+\\Nullsystem: 
+\\ Handnotiz
+\[ X_T << 3 X_D \qquad \text{Nullreaktanz des Trafos vernachlässigen} \]
+$\Rightarrow$ Parallelschwingkreis\\
+Resonanz bei $y = 0$
+Handnotiz
+\[ y_D = \frac{B_D}{3} \qquad \text{aus } \frac{1}{3 X_D} = \frac{1}{3\omega L} \]
+\[ B_D = \frac{1}{\omega L_D} \]
+Bedingung: 
+\[ \frac{B_D}{3} = \omega C_E \]
+\[ \Rightarrow \boxed{L_D = \frac{1}{3 \omega^2 C_E}} \qquad \Rightarrow I_E = 0 \]
+$L_D$ muss dem Netzzustand angepasst werden. \\
+Wirkwiderstände führen zu einer Verstimmung des Schwingkreises. \\
+Fehlabstimmungen liegen im Vereich $\pm 20\%$. \\
+Bemerkung: $C_E$ ist die Erdkapazität des gesamten Netzes. 
+
+\end{document}
