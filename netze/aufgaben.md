@@ -35,3 +35,8 @@
 ## SW08
 - Nr. 16 (Petersen)
 - Nr. 34 (Generator)
+
+## SW11
+- Nr. 29
+- Nr. 30
+- Nr. 31 (Nicht MEP)
